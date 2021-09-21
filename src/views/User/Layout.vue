@@ -3,6 +3,7 @@
     <div class="w-100 h-100 p">
       <Navbar :auth="auth" :admin="admin" :username="username" />
       <router-view class="content-wrapper ml-0" />
+      <Footer />
 
     </div>
   </div>
@@ -10,11 +11,13 @@
 
 <script>
 import Navbar from "@/components/ClientNavbar";
+import Footer from "@/components/Footer";
 
 import {fetch} from '@/modules/firebase'
 export default {
   components: {
     Navbar,
+    Footer
   },
   name: "Layout",
   data: () => {

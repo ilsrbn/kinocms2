@@ -48,7 +48,7 @@ export default {
   async mounted() {
     this.swiper.slideTo(3, 1000, false);
     this.banners = await fetch("/banners/main");
-    this.swiperOptions.speed = await fetch("/banners/mainSpeed");
+    this.swiperOptions.speed = (await fetch("/banners/mainSpeed")) * 1000;
   }
 }
 </script>
