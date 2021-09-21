@@ -6,10 +6,8 @@
       <b>Kino</b><i>CMS</i>
     </b-navbar-brand>
     <b-navbar-nav v-if="auth" class="ml-auto">
-      <b-nav-item right>
-        <b-form-select>
-          
-        </b-form-select>
+      <b-nav-item variant="dark" right>
+        <locale-switcher/>
       </b-nav-item>
       <b-dropdown variant="light" right :text="username">
         <b-dropdown-item
@@ -27,6 +25,9 @@
       </b-dropdown>
     </b-navbar-nav>
     <b-navbar-nav v-else class="ml-auto">
+      <b-nav-item right>
+        <locale-switcher/>
+      </b-nav-item>
       <b-nav-item variant="info" :to="{ name: 'LoginPage' }"
         ><i class="fas fa-sign-in-alt mr-1"></i>Войти</b-nav-item
       >
@@ -35,7 +36,11 @@
 </template>
 
 <script>
+import LocaleSwitcher from './LocaleSwitcher.vue'
 export default {
+  components: {
+    LocaleSwitcher
+  },
   name: 'Navbar',
   props: ['auth', 'admin', 'username'],
   methods: {

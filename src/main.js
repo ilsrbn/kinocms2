@@ -11,6 +11,7 @@ import './modules/firebase'
 
 import 'mutationobserver-shim'
 import '@/../public/plugins/fontawesome-free/css/all.min.css'
+import i18n from './i18n'
 
 
 
@@ -28,6 +29,7 @@ firebase.auth().onAuthStateChanged(() => {
     app = new Vue({
       router,
       store,
+      i18n,
       render: h => h(App)
     }).$mount('.wrapper')
   }
