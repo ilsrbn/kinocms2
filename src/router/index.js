@@ -17,13 +17,98 @@ const routes = [
         path: '',
         name: 'HomePage',
         component: () => import('@/views/User/Home.vue')
+      },
+
+      {
+        path: 'movies',
+        name: 'Movies',
+        component: () => import('@/views/User/Movies.vue')
+      },
+      {
+        path: 'soon',
+        name: 'Soon',
+        component: () => import('@/views/User/Soon.vue')
+      },
+
+      {
+        path: 'movie/:id',
+        name: 'Movie',
+        component: () => import('@/views/User/Movie.vue')
+      },
+      {
+        path: 'schedule',
+        name: 'Schedule',
+        component: () => import('@/views/User/Schedule.vue')
+      },
+      {
+        path: 'cinemas',
+        name: 'Cinemas',
+        component: () => import('@/views/User/Cinemas.vue')
+      },
+      {
+        path: 'cinema/:id',
+        name: 'Cinema',
+        component: () => import('@/views/User/Cinema.vue')
+      },
+      {
+        path: 'hall/:id',
+        name: 'Hall',
+        component: () => import('@/views/User/Hall.vue')
+      },
+      {
+        path: 'promotions',
+        name: 'Promos',
+        component: () => import('@/views/User/Promos.vue')
+      },
+      {
+        path: 'promotion/:id',
+        name: 'Promo',
+        component: () => import('@/views/User/Promo.vue')
+      },
+      {
+        path: 'about',
+        name: 'About',
+        component: () => import('@/views/User/About.vue')
+      },
+      {
+        path: 'news',
+        name: 'News',
+        component: () => import('@/views/User/News.vue')
+      },
+      {
+        path: 'advertisment',
+        name: 'Adv',
+        component: () => import('@/views/User/Adv.vue')
+      },
+      {
+        path: 'caffee',
+        name: 'Caffee',
+        component: () => import('@/views/User/Caffee.vue')
+      },
+      {
+        path: 'mobile',
+        name: 'Mobile',
+        component: () => import('@/views/User/Mobile.vue')
+      },
+      {
+        path: 'contacts',
+        name: 'Contacts',
+        component: () => import('@/views/User/Contacts.vue')
+      },
+      {
+        path: 'profile',
+        name: 'User',
+        meta: {auth: true},
+        component: () => import('@/views/User/User.vue')
       }
+
     ]
   },
 
   {
     path: '/signup',
     name: 'SignupPage',
+    meta: {auth: false},
 
     component: () => import('@/views/Login/Register.vue')
   },
@@ -31,6 +116,7 @@ const routes = [
   {
     path: '/login',
     name: 'LoginPage',
+    meta: {auth: false},
 
     component: () => import('@/views/Login/Login.vue')
   },

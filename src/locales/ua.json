@@ -1,7 +1,60 @@
 {
+  "navbar": {
+    "search-placeholder": "Пошук",
+    "search-button": "Знайти",
+    "more": "Ще",
+    "link": {
+      "current": "Афіша",
+      "schedule": "Розклад",
+      "soon": "Незабаром",
+      "cinemas": "Кінотеатри",
+      "promos": "Акції",
+      "about": "Про кінотеатр",
+      "news": "Новини",
+      "adb": "Реклама",
+      "caffee": "Кафе",
+      "mobile": "Мобільний додаток",
+      "contacts": "Контакти"
+    }
+  },
   "home": {
     "current": "Дивіться сьогодні",
     "soon": "Дивіться незабаром",
     "promos": "Акції та новини"
-  }
+  },
+  "movie": {
+    "cinema": "Кінотеатр",
+    "cinemaChoice": "Оберіть кінотеатр",
+    "hall": "Зала №",
+    "time": "Час сеансу: ",
+    "date": "Дата сеансу: "
+  },
+  "schedule": {
+    "movie": "Фільм",
+    "date": "Дата сеансу",
+    "time":"Час сеансу",
+    "cinema":"Кінотеатр",
+    "hall":"Зала №",
+    "price": "Ціна"
+  },
+  "cinemas": {
+    "h1": "Наші кінотеатри"
+  },
+  "cinema": {
+    "hall":"Зала №",
+    "description": "Опис",
+    "terms": "Умови",
+    "movies": "Сеанси"
+  },
+  "promotions": {
+    "h1": "Акції"
+  },
+  "news": {
+    "h1": "Новини"
+  },
+  "mobile": {
+    "h1": "Мобільні додатки",
+    "p": "Esse do voluptate dolore laborum laborum duis aliquip ex aliquip cillum. Consectetur sint fugiat ipsum dolore mollit id quis laborum fugiat ea Lorem ad. Commodo et deserunt ea ea. Dolor voluptate minim quis velit quis consectetur esse ea dolor excepteur elit. Ut pariatur ipsum laboris sint do proident aliqua dolore incididunt quis."
+  },
+  "contacts": "Контакти"
 }

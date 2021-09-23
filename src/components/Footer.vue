@@ -1,10 +1,8 @@
 <template>
   <b-card bg-variant="dark"
     ><b-card-body class="pb-0">
-      <b-row>
+      <b-row class="p-3">
         <b-col cols="3">
-          <p>Мобильные приложухи</p>
-          <br />
           <div class="ccc">
             <b-img
               fluid
@@ -18,8 +16,53 @@
             ></b-img>
           </div>
         </b-col>
-        <b-col cols="4"></b-col>
-        <b-col cols="4"></b-col>
+        <b-col cols="7">
+          <b-row>
+          <b-col>
+            <ul>
+              <li><router-link :to="{name: 'Movies'}">{{$t('navbar.link.current')}}</router-link></li>
+              <li><router-link :to="{name: 'Schedule'}">{{$t('navbar.link.schedule')}}</router-link></li>
+              <li><router-link :to="{name: 'Soon'}">{{$t('navbar.link.soon')}}</router-link></li>
+              <li><router-link :to="{name: 'Cinemas'}">{{$t('navbar.link.cinemas')}}</router-link></li>
+              <li><router-link :to="{name: 'Promos'}">{{$t('navbar.link.promos')}}</router-link></li>
+            </ul>
+          </b-col>
+          <b-col>
+            <ul>
+              <li><router-link :to="{name: 'About'}">{{$t('navbar.link.about')}}</router-link></li>
+              <li><router-link :to="{name: 'News'}">{{$t('navbar.link.news')}}</router-link></li>
+              <li><router-link :to="{name: 'Adv'}">{{$t('navbar.link.adb')}}</router-link></li>
+              <li><router-link :to="{name: 'Caffee'}">{{$t('navbar.link.caffee')}}</router-link></li>
+              <li><router-link :to="{name: 'Contacts'}">{{$t('navbar.link.contacts')}}</router-link></li>
+            </ul>
+          </b-col>
+          </b-row>
+        </b-col>
+        <b-col cols="1">
+          <b-container>
+                <b-row>
+                  <b-col
+                    ><i
+                      style="color: #e4405f"
+                      class="fab fa-instagram fa-2x"
+                    ></i
+                  ></b-col>
+                  <b-col
+                    ><i
+                      style="color: #1877f2"
+                      class="fab fa-facebook-square fa-2x"
+                    ></i
+                  ></b-col>
+                  <b-col
+                    ><i style="color: #ff0000" class="fab fa-youtube fa-2x"></i
+                  ></b-col>
+                  <b-col
+                    ><i style="color: #4680c2" class="fab fa-vk fa-2x"></i
+                  ></b-col>
+                </b-row>
+
+          </b-container>
+        </b-col>
       </b-row>
       <b-row class="mt-4"
         ><b-col class="text-center"
@@ -35,6 +78,20 @@ export default {};
 </script>
 
 <style>
+li {
+  list-style: none;
+}
+.footer a, a:after {
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 100ms ease-in;
+}
+
+.footer a:hover {
+  color: white;
+  opacity: 0.5;
+}
 .ccc {
   opacity: 0.4;
   cursor: pointer;

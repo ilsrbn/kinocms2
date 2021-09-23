@@ -1,9 +1,10 @@
 <template>
   <div class="wrapper" :style="backgroundBanner">
+    
     <div class="w-100 h-100 p">
       <Navbar :auth="auth" :admin="admin" :username="username" />
       <router-view class="content-wrapper ml-0" />
-      <Footer />
+      <Footer class="footer" />
 
     </div>
   </div>
@@ -41,6 +42,11 @@ export default {
         }
       }
 
+      if (this.$store.getters.info == null) {
+        this.auth = false
+        return
+      }
+
       let admin = this.$store.getters.info.admin;
       if (admin == true) {
         this.admin = true;
@@ -58,7 +64,10 @@ export default {
   },
   computed: {
     username() {
-      return this.$store.getters.info.username;
+      if (this.$store.getters.info != null) {
+        return this.$store.getters.info.username;
+      }
+      else return ''
     }
   },
 };
@@ -66,11 +75,14 @@ export default {
 
 <style scoped>
 .p {
-  padding: 3rem 10%;
+  padding: 0 10% 3rem;
 }
 
 * {
   color: white;
+
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,7 +90,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
-.content-wrapper {
-  background: rgba(0, 0, 0, 0.8);
+.wrapper {
+  min-height: 100vh;
 }
+
+.wrapper .content-wrapper {
+  background: rgba(0, 0, 0, 0.8);
+  height: auto;
+  min-height: unset;
+}
+
 </style>

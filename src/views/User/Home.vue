@@ -19,7 +19,7 @@
           </b-col>
           <b-col cols="3"></b-col>
         </b-row>
-        <b-row class="mt-2"><p>{{seo[$i18n.locale].text}}</p></b-row>
+        <b-row class="mt-2"><p>{{seo[locale].text}}</p></b-row>
 
       </div>
     </section>
@@ -37,6 +37,12 @@ export default {
     Gallery,
     MoviesContainer,
     Promos,
+  },
+
+  computed: {
+    locale() {
+      return this.$i18n.locale
+    }
   },
 
   data: () => ({

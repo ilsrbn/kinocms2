@@ -1,5 +1,8 @@
 <template>
-  <b-form-select :options="locales" v-model="$i18n.locale"></b-form-select>
+  <b-nav-item-dropdown style="text-transform:uppercase" :text="locale">
+    <b-dropdown-item style="text-transform:capitalize" @click="switchLocale('ru')">Русский</b-dropdown-item>
+    <b-dropdown-item style="text-transform:capitalize" @click="switchLocale('ua')">Украинский</b-dropdown-item>
+  </b-nav-item-dropdown>
 </template>
 
 <script>
@@ -11,6 +14,14 @@ export default {
   computed: {
     locale() {
       return this.$i18n.locale
+    }
+  },
+
+  methods: {
+    switchLocale(lang) {
+      if (this.$i18n.locale != lang) {
+        this.$i18n.locale = lang
+      }
     }
   }
 

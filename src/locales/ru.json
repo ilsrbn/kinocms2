@@ -1,7 +1,60 @@
 {
+  "navbar": {
+    "search-placeholder": "Поиск",
+    "search-button": "Найти",
+    "more": "Ещё",
+    "link": {
+      "current": "Афиша",
+      "schedule": "Расписание",
+      "soon": "Скоро",
+      "cinemas": "Кинотеатры",
+      "promos": "Акции",
+      "about": "О кинотеатре",
+      "news": "Новости",
+      "adb": "Реклама",
+      "caffee": "Кафе",
+      "mobile": "Мобильное приложение",
+      "contacts": "Контакты"
+    }
+  },
   "home": {
     "current": "смотрите сегодня",
     "soon": "смотрите скоро",
     "promos": "Акции и новости"
-  }
+  },
+  "movie": {
+    "cinema": "Кинотеатр",
+    "cinemaChoice": "Выберите кинотеатр",
+    "hall": "Зал №",
+    "time": "Время сеанса: ",
+    "date": "Дата сеанса: "
+  },
+  "schedule": {
+    "movie": "Фильм",
+    "date": "Дата сеанса",
+    "time":"Время сеанса",
+    "cinema":"Кинотеатр",
+    "hall":"Зал №",
+    "price": "Цена"
+  },
+  "cinemas": {
+    "h1": "Наши кинотеатры"
+  },
+  "cinema": {
+    "hall":"Зал №",
+    "description": "Описание",
+    "terms": "Условия",
+    "movies": "Сеанси"
+  },
+  "promotions": {
+    "h1": "Акции"
+  },
+  "news": {
+    "h1": "Новости"
+  },
+  "mobile": {
+    "h1": "Мобильные приложения",
+    "p": "Eiusmod excepteur ad consectetur tempor in sint dolore eiusmod ad proident. Ullamco ut qui ut nostrud cupidatat consectetur incididunt pariatur magna amet. Laboris exercitation nulla qui ullamco elit laboris sunt. Laboris tempor aliquip consequat velit anim aliqua ex magna quis nulla excepteur non. Nulla nulla eu reprehenderit anim sint. Ullamco nostrud ullamco laborum consequat sit nulla nostrud consectetur et. Nostrud eiusmod dolor incididunt ullamco laboris ullamco labore nisi consectetur Lorem id fugiat exercitation."
+  },
+  "contacts": "Контакти"
 }
