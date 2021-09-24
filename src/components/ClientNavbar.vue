@@ -9,12 +9,26 @@
     </b-navbar-brand></b-col>
         <b-col class="text-center">
           <b-nav-form class="justify-content-center">
-            <b-form-input
-              size="sm"
-              class="mr-sm-0"
-              :placeholder="$t('navbar.search-placeholder')"
-            ></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0">{{$t('navbar.search-button')}}</b-button>
+
+
+            <!-- Компонент поиска -->
+            <autocomplete
+              :search="search"
+              :get-result-value="getResult"
+              placeholder="Поиск">
+
+              <!-- кастомный рендер выпадающего списка -->
+              <template #result="{ result, props }">
+                
+                <a v-bind="props" class="autocomplete-result search-field" :href="`/movie/${result.id}`">
+
+                    <div class="imageSearch"><b-img fluid :src="result[locale].banner"></b-img></div>
+                    <div class="textSearch">{{result[locale].title}}</div>
+                 
+                </a>
+              </template>
+            </autocomplete>
+
           </b-nav-form>
         </b-col>
         <b-col cols="4">
@@ -109,14 +123,57 @@
 import LocaleSwitcher from "./LocaleSwitcher.vue";
 import { fetch } from "@/modules/firebase";
 
+// импорт компонента поиска и его стили
+import Autocomplete from '@trevoreyre/autocomplete-vue'
+import '@trevoreyre/autocomplete-vue/dist/style.css'
+
 export default {
   components: {
     LocaleSwitcher,
 
+    // Регистрация компонента поиска
+    Autocomplete
+
   },
   name: "Navbar",
   props: ["auth", "admin", "username"],
+  computed: {
+    // Возвращает только нужные поля в каждом из фильмов
+    moviesSearch() {
+      let movies = []
+      this.movies.forEach(t => {
+        movies.push({
+          id: this.movies.indexOf(t),
+          type: t.type,
+          ru: {
+            title: t.ru.title,
+            banner: t.ru.banner
+          },
+          ua: {
+            title: t.ua.title,
+            banner: t.ua.banner
+          }
+        })
+      })
+    return movies
+    }
+  },
   methods: {
+    // Срабатывает при печатании
+    search(input) {
+      if (input.length < 1) {
+        return []
+      }
+      
+      return this.moviesSearch.filter(movie => {
+        return movie[this.locale].title.toLowerCase().startsWith(input.toLowerCase())
+      })
+    },
+    // Передает в пропс результат поиска для кастомного рендеринга
+    getResult(result) {
+        return result
+      },
+
     async logout() {
       await this.$store.dispatch("logout");
       this.$router.push({ name: "LoginPage" });
@@ -144,17 +201,46 @@ export default {
   data: () => ({
     info: {},
     vis: false,
-    locale: ''
+    locale: '',
+
+    // Загрузка фильмов для поиска по ним 
+    movies: []
   }),
 
   async mounted() {
     this.info = await fetch("/pages/0");
+    this.movies = await fetch('/movies')
     this.locale = this.$i18n.locale
   },
 };
 </script>
 
 <style>
+.search-field{
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+.imageSearch {
+  max-width: 40%;
+  margin-left: 0;
+  border-radius: 5px;
+
+}
+
+.imageSearch img {
+  border-radius: 5px;
+}
+
+a .textSearch {
+  text-transform: uppercase;
+  font-style: italic;
+  text-decoration: none;
+  text-align: center;
+}
+
 .n, .navbar-light {
   background: rgba(0, 0, 0, 0) !important;
   box-shadow: 0 2px .3rem .1rem rgba(0, 0, 0, 0);
